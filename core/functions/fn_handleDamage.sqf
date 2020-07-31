@@ -43,5 +43,16 @@ if (!isNull _source && {_source != _unit}) then {
     };
 };
 
+if (((vehicle _source isKindOf "Ship") OR ( vehicle _source isKindOf "Air") OR (vehicle _source isKindOf "LandVehicle")) AND (_projectile == "")) then  
+{   
+	_unit allowDamage false;  
+	_unit setVariable ["life_fnc_allowDamage", False];  
+	_unit spawn {  
+		sleep 2;  
+		_this setVariable ["life_fnc_allowDamage", True];  
+		_this allowDamage true;  
+	};  
+};
+
 [] spawn life_fnc_hudUpdate;
 _damage;
