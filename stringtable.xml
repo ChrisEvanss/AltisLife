@@ -1066,7 +1066,10 @@
             <Portuguese>Depositar</Portuguese>
             <Polish>Deopozyt</Polish>
 			<Chinesesimp>存款</Chinesesimp>
-        </Key>
+      </Key>
+      <Key ID="STR_ATM_Deposit_All">
+    <Original>Deposit All</Original>
+      </Key>
         <Key ID="STR_ATM_WithdrawGang">
             <Original>Withdraw: Gang</Original>
             <Czech>Odstoupit: Gang</Czech>
