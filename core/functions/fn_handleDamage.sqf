@@ -35,7 +35,7 @@ if (!isNull _source && {_source != _unit}) then {
                 };
                 _damage = if (_part isEqualTo "") then {
                     damage _unit;
-                } else { 
+                } else {
                     _unit getHit _part;
                 };
             };
@@ -43,15 +43,19 @@ if (!isNull _source && {_source != _unit}) then {
     };
 };
 
-if (((vehicle _source isKindOf "Ship") OR ( vehicle _source isKindOf "Air") OR (vehicle _source isKindOf "LandVehicle")) AND (_projectile == "")) then  
-{   
-	_unit allowDamage false;  
-	_unit setVariable ["life_fnc_allowDamage", False];  
-	_unit spawn {  
-		sleep 2;  
-		_this setVariable ["life_fnc_allowDamage", True];  
-		_this allowDamage true;  
-	};  
+if (vehicle _unit == _unit) then {
+if ( _source isKindOf "Air" OR _source isKindOf "Car" OR _source isKindOf "Motorcycle" OR _source isKindOf "Boat" OR _source isKindOf "Tank" ) then
+{
+}
+else
+{
+
+    _isVehicle = vehicle _source;
+    if (_isVehicle isKindOf "Air" OR _isVehicle isKindOf "Car" OR _isVehicle isKindOf "Boat" OR _isVehicle isKindOf "Motorcycle" OR _isVehicle isKindOf "Tank") then
+    {
+        _damage = _currdamage;
+    };
+};
 };
 
 [] spawn life_fnc_hudUpdate;
